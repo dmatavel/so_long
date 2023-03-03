@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   inputerrs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/28 16:25:07 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/02/28 15:21:37 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/02/28 16:25:01 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# define EXT ".ber"
-# define STATUS_ERROR_1 "Error\nThere isn't a valid map\n"
-# define STATUS_ERROR_2 "Error\nMap file has not a .ber extension\n"
 
-# include "libft/include/libft.h"
-# include <fcntl.h>
-# include <stdio.h>
-# include <math.h>
-# include <string.h>
-# include "mlx/mlx.h"
+void	check_map_ext(char *s)
+{
+	char	*ext;
+	int		len;
 
-void	check_map_ext(char *s);
-
-#endif //SO_LONG_H
+	ext = ft_strchr(s, '.');
+	len = ft_strlen(s) - ft_strlen(ext);
+	if (s[len + 4] != '\0'
+		|| (ft_strncmp(ext, EXT, ft_strlen(ext)) != 0))
+	{
+		ft_printf(STATUS_ERROR_2);
+		exit(EXIT_FAILURE);
+	}
+}

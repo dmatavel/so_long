@@ -1,5 +1,5 @@
 NAME = so_long
-SRCS = main.c 
+SRCS = main.c mlx_init.c inputerrs.c
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
 LIBFT = libft/libft.a
@@ -10,7 +10,6 @@ LINKS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 $(NAME): $(LIBFT) $(OBJ)
 	make -C $(MLX_PATH) all
-	cp mlx/libmlx.dylib .
 	$(CC) $(CFLAGS) $(LINKS) $^ -o $@ $(LIBFT)
 
 $(LIBFT):
@@ -24,7 +23,6 @@ clean:
 	make -C $(MLX_PATH) clean
 
 fclean: clean
-	rm libmlx.dylib
 	rm -f $(NAME)
 	rm -f $(LIBFT)
 
