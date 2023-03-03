@@ -1,11 +1,11 @@
 NAME = so_long
-SRCS = main.c mlx_init.c inputerrs.c
+SRCS = main.c mlx_init.c inputerrs.c read_map.c
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
 LIBFT = libft/libft.a
 MLX_PATH = mlx/
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 LINKS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
 
 $(NAME): $(LIBFT) $(OBJ)
