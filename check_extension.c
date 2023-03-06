@@ -6,14 +6,14 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:21:37 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/03 12:08:02 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:01:15 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 
-void	check_map_ext(char *s)
+void	check_extension(char *s)
 {
 	char	*ext;
 	int		len;

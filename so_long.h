@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/03 13:58:21 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:00:38 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_map
 	int	player;
 } t_map;
 
-void	check_map_ext(char *s);
-void	read_map(char *arg);
+void	check_extension(char *s);
+void	check_chars(char *arg);
 
 #endif //SO_LONG_H
