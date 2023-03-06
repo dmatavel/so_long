@@ -1,51 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_chars.c                                      :+:      :+:    :+:   */
+/*   check_square.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 11:27:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/06 11:19:48 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/03/06 11:21:50 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/03/06 12:16:54 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	istoken(int c)
+void	check_length(char *arg)
 {
-	return (c == '0' || c == '1' || c == 'C'
-		|| c == 'E' || c == 'P' || c == '\n');
-}
-
-static void	check_tokens(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (!istoken(line[i]))
-		{
-			ft_printf(STATUS_ERROR_3);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-}
-
-void	check_chars(char *arg)
-{
-	int		fd;
 	char	*line;
+	int		fd;
+	int		i;
+	int		j;
 
 	fd = open(arg, O_RDONLY);
 	line = get_next_line(fd);
+	i = ft_strlen(line);
 	while (line != NULL)
 	{
-		check_tokens(line);
+		j = ft_strlen(line);
+		if (i != j)
+		{
+			ft_printf(STATUS_ERROR_5);
+			exit(EXIT_FAILURE);
+		}
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd); 
 	}
 	close(fd);
+}
+
+void	check_square(char *arg)
+{
+	char	*line;
+	int		fd;
+	int		i;
+	int		j;
+
+	fd = open(arg, O_RDONLY);
+	line = get_next_line(fd);
+	i = ft_strlen(line) - 1;
+	j = 0;
+	while (line != NULL)
+	{
+		j += 1;
+		free(line);
+		line = get_next_line(fd); 
+	}
+	if ((i / 2) == j)
+	{
+		ft_printf(STATUS_ERROR_5);
+		exit(EXIT_FAILURE);
+	}
+	close(fd);
+	check_length(arg);
 }

@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/06 10:00:38 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:12:12 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define SO_LONG_H
 
 # define EXT ".ber"
-# define STATUS_ERROR_1 "Error\nThere isn't a valid map\n"
-# define STATUS_ERROR_2 "Error\nMap file has not a .ber extension\n"
-# define STATUS_ERROR_3 "Error\nMap file has invalid characters\n"
+# define STATUS_ERROR_1 "Error\nThere isn't a valid map.\n"
+# define STATUS_ERROR_2 "Error\nMap file has not a .ber extension.\n"
+# define STATUS_ERROR_3 "Error\nMap file has invalid characters.\n"
+# define STATUS_ERROR_4 "Error\nThe map must contain 1 exit, at least 1 collectible, and 1 starting position."
+# define STATUS_ERROR_5 "Error\nThe map must be rectantgular."
 
 # include "libft/include/libft.h"
 # include <fcntl.h>
@@ -25,16 +27,18 @@
 # include <string.h>
 # include "mlx/mlx.h"
 
-typedef struct s_map
+typedef struct s_graph
 {
 	int	space;
 	int	wall;
 	int	collectible;
 	int	exit;
 	int	player;
-} t_map;
+}	t_graph;
 
 void	check_extension(char *s);
 void	check_chars(char *arg);
+void	count_chars(char *arg);
+void	check_square(char *arg);
 
 #endif //SO_LONG_H
