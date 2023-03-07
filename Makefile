@@ -1,6 +1,6 @@
 NAME = so_long
-SRCS = main.c mlx_init.c check_extension.c check_chars.c \
-	   count_chars.c check_square.c check_walls.c
+SRCS = main.c mlx_init.c read_map.c validations.c check_extension.c\
+
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
 LIBFT = libft/libft.a
