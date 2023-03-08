@@ -1,51 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_chars.c                                      :+:      :+:    :+:   */
+/*   validations2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 11:27:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/06 11:19:48 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/03/08 11:23:33 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	istoken(int c)
+void	test_bottom_line(char **map)
 {
-	return (c == '0' || c == '1' || c == 'C'
-		|| c == 'E' || c == 'P' || c == '\n');
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+		i++;
+	j = -1;
+	i--;
+	while (map[i][++j] != '\n')
+	{
+		if (map[i][j] != '1')
+			error(STATUS_ERROR_6);
+	}
 }
 
-static void	check_tokens(char *line)
+void	testing_the_wall(char **map)
 {
 	int	i;
 
+	i = -1;
+	while (map[0][++i] != '\n')
+	{
+		if (map[0][i] != '1')
+			error(STATUS_ERROR_6);
+	}
 	i = 0;
-	while (line[i])
+	while (map[++i])
 	{
-		if (!istoken(line[i]))
-		{
-			ft_printf(STATUS_ERROR_3);
-			exit(EXIT_FAILURE);
-		}
-		i++;
+		if (map[i][0] != '1' ||
+			map[i][ft_strlen(map[i]) - 2] != '1')
+			error(STATUS_ERROR_6);
 	}
-}
-
-void	check_chars(char *arg)
-{
-	int		fd;
-	char	*line;
-
-	fd = open(arg, O_RDONLY);
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		check_tokens(line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
+	test_bottom_line(map);
 }

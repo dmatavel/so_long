@@ -6,11 +6,23 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/07 16:31:52 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:09:27 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	test_map_file(char *s)
+{
+	char	*ext;
+	int		len;
+
+	ext = ft_strchr(s, '.');
+	len = ft_strlen(s) - ft_strlen(ext);
+	if (s[len + 4] != '\0'
+		|| (ft_strncmp(ext, EXT, ft_strlen(ext)) != 0))
+		error(STATUS_ERROR_2);
+}
 
 int	grain(int c)
 {
@@ -30,10 +42,7 @@ void	chasing_the_chaff(char **map)
 		while (map[i][j])
 		{
 			if (!grain(map[i][j]))
-			{
-				ft_printf(STATUS_ERROR_3);
-				exit(EXIT_FAILURE);
-			}
+				error(STATUS_ERROR_3);
 			j++;
 		}
 		i++;
@@ -43,10 +52,7 @@ void	chasing_the_chaff(char **map)
 void	weighing(int player, int exit, int collectible)
 {
 	if (exit != 1 || collectible == 0 || player != 1)
-	{
-		ft_printf(STATUS_ERROR_4);
-		_Exit(EXIT_FAILURE);
-	}
+		error(STATUS_ERROR_4);
 }
 
 void	evaluating_the_basis(char **map)
@@ -59,10 +65,10 @@ void	evaluating_the_basis(char **map)
 	tile.player = 0;
 	tile.exit = 0;
 	tile.collectible = 0;
-	while (map[i++])
+	while (map[++i])
 	{
 		j = -1;
-		while (map[i][j++])
+		while (map[i][++j])
 		{
 			if (map[i][j] == 'P')
 				tile.player += 1;
@@ -71,6 +77,6 @@ void	evaluating_the_basis(char **map)
 			if (map[i][j] == 'C')
 				tile.collectible += 1;
 		}
-		weighing(tile.player, tile.exit, tile.collectible);
 	}
-}	
+	weighing(tile.player, tile.exit, tile.collectible);
+}

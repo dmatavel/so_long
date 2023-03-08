@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:41:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/07 15:38:14 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:09:10 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**read_map(char *arg)
 		i++;
 	}
 	map[i] = NULL;
-	free(line);
+	line = NULL;;
 	close(fd);
 	return (map);
 }

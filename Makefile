@@ -1,5 +1,6 @@
 NAME = so_long
-SRCS = main.c mlx_init.c read_map.c validations.c check_extension.c\
+SRCS = main.c mlx_init.c read_map.c validations.c\
+	   validations2.c error.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
