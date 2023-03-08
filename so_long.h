@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/08 12:46:47 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:19:10 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_graph
 	int	player;
 }	t_graph;
 
-void	test_map_file(char *s);
+void	test_map_file(int ac, char *file);
 void	error(char *msg);
 char	**read_map(char *arg);
 void	chasing_the_chaff(char **map);

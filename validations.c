@@ -6,20 +6,22 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/08 10:09:27 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:21:03 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	test_map_file(char *s)
+void	test_map_file(int ac, char *file)
 {
 	char	*ext;
 	int		len;
 
-	ext = ft_strchr(s, '.');
-	len = ft_strlen(s) - ft_strlen(ext);
-	if (s[len + 4] != '\0'
+	if (ac != 2 || !file)
+		error(STATUS_ERROR_1);
+	ext = ft_strchr(file, '.');
+	len = ft_strlen(file) - ft_strlen(ext);
+	if (file[len + 4] != '\0'
 		|| (ft_strncmp(ext, EXT, ft_strlen(ext)) != 0))
 		error(STATUS_ERROR_2);
 }

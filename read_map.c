@@ -6,11 +6,17 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:41:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/08 11:09:10 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:53:00 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	test_fd(int fd)
+{
+	if (fd == STATUS_ERROR)
+		error(STATUS_ERROR_1);
+}
 
 static int	count_map_lines(char *arg)
 {
@@ -19,6 +25,7 @@ static int	count_map_lines(char *arg)
 	char	*line;
 
 	fd = open(arg, O_RDONLY);
+	test_fd(fd);
 	i = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
