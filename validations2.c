@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/08 11:23:33 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:04:26 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,35 @@ void	testing_the_wall(char **map)
 			error(STATUS_ERROR_6);
 	}
 	test_bottom_line(map);
+}
+
+void	measure_the_lines(char **map)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = ft_strlen(map[i]);
+	while (map[i])
+	{
+		k = ft_strlen(map[i]);
+		if (j != k)
+			error(STATUS_ERROR_5);
+		i++;
+	}
+}
+
+void	anti_square(char **map)
+{
+	int	i;
+	int	j;
+
+	measure_the_lines(map);
+	i = 0;
+	j = ft_strlen(map[i]);
+	while (map[i])
+		i++;
+	if ((j / 2) == i)
+		error(STATUS_ERROR_5);
 }

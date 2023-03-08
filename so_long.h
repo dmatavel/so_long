@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/08 10:04:11 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:46:47 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ char	**read_map(char *arg);
 void	chasing_the_chaff(char **map);
 void	evaluating_the_basis(char **map);
 void	testing_the_wall(char **map);
+void	anti_square(char **map);
 
 #endif //SO_LONG_H
