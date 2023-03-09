@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/08 13:19:10 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:45:25 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@
 # define STATUS_ERROR_4 "Error\nWrong number of exit, collectibles or player.\n"
 # define STATUS_ERROR_5 "Error\nThe map must be rectantgular.\n"
 # define STATUS_ERROR_6 "Error\nThe map must be surrounded by walls.\n"
+# define STATUS_ERROR_7 "Error\nThe map must have a valid path.\n"
 
 # include "libft/include/libft.h"
 # include <fcntl.h>
 # include <stdio.h>
-# include <math.h>
-# include <string.h>
 # include "mlx/mlx.h"
 
 typedef struct s_graph
@@ -35,7 +34,19 @@ typedef struct s_graph
 	int	collectible;
 	int	exit;
 	int	player;
-}	t_graph;
+	int	h;
+	int	w;
+}				t_graph;
+
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
 
 void	test_map_file(int ac, char *file);
 void	error(char *msg);
@@ -44,5 +55,7 @@ void	chasing_the_chaff(char **map);
 void	evaluating_the_basis(char **map);
 void	testing_the_wall(char **map);
 void	anti_square(char **map);
+void	search_a_path(char **map);
+void	open_mlx(void);
 
 #endif //SO_LONG_H
