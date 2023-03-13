@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/09 13:45:25 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:39:09 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,19 @@ typedef struct s_graph
 	int	player;
 	int	h;
 	int	w;
+	int	exit_h;
+	int	exit_w;
 }				t_graph;
 
-typedef struct	s_data
+typedef struct s_mlx
 {
+	void	*mlx;
+	void	*win;
 	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
+	char	*exit_path;
+	int		img_width;
+	int		img_height;
+} 				t_mlx;
 
 void	test_map_file(int ac, char *file);
 void	error(char *msg);
@@ -56,6 +58,6 @@ void	evaluating_the_basis(char **map);
 void	testing_the_wall(char **map);
 void	anti_square(char **map);
 void	search_a_path(char **map);
-void	open_mlx(void);
+void	open_window(t_mlx *mlx);
 
 #endif //SO_LONG_H

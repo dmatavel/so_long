@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/09 10:12:46 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:55:10 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	weighing(int player, int exit, int collectible)
 		error(STATUS_ERROR_4);
 }
 
-void	evaluating_the_basis(char **map)
+void	evaluating_the_basis(t_graph *graph, char **map)
 {
 	int		i;
 	int		j;
@@ -74,10 +74,13 @@ void	evaluating_the_basis(char **map)
 		{
 			if (map[i][j] == 'P')
 				tile.player += 1;
+			//get_graph_location(t_graph *graph, i, j, );
 			if (map[i][j] == 'E')
 				tile.exit += 1;
+			//get_graph_location(t_graph *graph, i, j);
 			if (map[i][j] == 'C')
 				tile.collectible += 1;
+			//get_graph_location(t_graph *graph, i, j);
 		}
 	}
 	weighing(tile.player, tile.exit, tile.collectible);

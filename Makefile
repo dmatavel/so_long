@@ -1,6 +1,7 @@
 NAME = so_long
-SRCS = main.c mlx_init.c read_map.c validations.c\
-	   validations2.c error.c pathfinder.c
+SRCS = main.c read_map.c validations.c\
+	   validations2.c error.c pathfinder.c\
+	   open_window.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
