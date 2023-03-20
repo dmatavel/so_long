@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:22:18 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/13 14:41:22 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:15:52 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	open_window(t_mlx *mlx)
 	mlx->mlx = mlx_init();
 	mlx->win = mlx_new_window(mlx->mlx, 640, 360, "so_long");
 	mlx->img = mlx_xpm_file_to_image(mlx->mlx, exit_path, &img_width, &img_height);
-	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->img, img_width * 3, img_height * 6);
+	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->img, img_width * 40, img_height * 40);
 	mlx_loop(mlx->mlx);
 }

@@ -1,7 +1,7 @@
 NAME = so_long
 SRCS = main.c read_map.c validations.c\
 	   validations2.c error.c pathfinder.c\
-	   open_window.c
+	   open_window.c get_graph_locations.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
@@ -10,6 +10,17 @@ MLX_PATH = mlx/
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 LINKS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
+
+# checar qual OS
+
+# detected_OS = $(shell uname -s)
+
+# ifeq (detected_OS == "Darwin")
+#	LINKS = ASDFASDFASDFA
+#	-D OS= 1
+# else
+#	LINKS = sadasda
+# endif
 
 $(NAME): $(LIBFT) $(OBJ)
 	make -C $(MLX_PATH) all

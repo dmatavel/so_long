@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/13 14:39:09 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:07:06 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define SO_LONG_H
 
 # define EXT ".ber"
+# define EXIT_PATH "./sprites/exit.xpm";
+# define PLAYER_PATH "./sprites/player.xpm";
+# define WALL_PATH "./sprites/wall.xpm";
+# define COLCT_PATH "./sprites/collect.xpm";
+# define FLOOR_PATH "./sprites/floor.xpm";
+
 # define STATUS_ERROR_1 "Error\nInsert a valid file.ber.\n"
 # define STATUS_ERROR_2 "Error\nCheck the file extension.\n"
 # define STATUS_ERROR_3 "Error\nMap file has invalid characters.\n"
@@ -38,6 +44,10 @@ typedef struct s_graph
 	int	w;
 	int	exit_h;
 	int	exit_w;
+	int	player_h;
+	int	player_w;
+	int	collect_h;
+	int	collect_w;
 }				t_graph;
 
 typedef struct s_mlx
@@ -59,5 +69,6 @@ void	testing_the_wall(char **map);
 void	anti_square(char **map);
 void	search_a_path(char **map);
 void	open_window(t_mlx *mlx);
+void	get_graph_locations(t_graph *graph, char **map, int i, int j);
 
 #endif //SO_LONG_H
