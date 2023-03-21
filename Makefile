@@ -1,7 +1,5 @@
 NAME = so_long
-SRCS = main.c read_map.c validations.c\
-	   validations2.c error.c pathfinder.c\
-	   open_window.c get_graph_locations.c
+SRCS = main.c validations.c check_format.c utils.c pathfinder.c put_images.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/

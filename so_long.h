@@ -6,19 +6,24 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/20 14:07:06 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:46:34 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define EXT ".ber"
-# define EXIT_PATH "./sprites/exit.xpm";
-# define PLAYER_PATH "./sprites/player.xpm";
-# define WALL_PATH "./sprites/wall.xpm";
-# define COLCT_PATH "./sprites/collect.xpm";
-# define FLOOR_PATH "./sprites/floor.xpm";
+# include "libft/include/libft.h"
+# include <fcntl.h>
+# include <stdio.h>
+# include "mlx/mlx.h"
+
+# define FILE_EXT ".ber"
+# define EXIT "./sprites/exit.xpm"
+# define PLAYER "./sprites/player.xpm"
+# define WALL "./sprites/wall.xpm"
+# define COLLECT "./sprites/collect.xpm"
+# define FLOOR "./sprites/floor.xpm"
 
 # define STATUS_ERROR_1 "Error\nInsert a valid file.ber.\n"
 # define STATUS_ERROR_2 "Error\nCheck the file extension.\n"
@@ -27,11 +32,6 @@
 # define STATUS_ERROR_5 "Error\nThe map must be rectantgular.\n"
 # define STATUS_ERROR_6 "Error\nThe map must be surrounded by walls.\n"
 # define STATUS_ERROR_7 "Error\nThe map must have a valid path.\n"
-
-# include "libft/include/libft.h"
-# include <fcntl.h>
-# include <stdio.h>
-# include "mlx/mlx.h"
 
 typedef struct s_graph
 {
@@ -42,33 +42,28 @@ typedef struct s_graph
 	int	player;
 	int	h;
 	int	w;
-	int	exit_h;
-	int	exit_w;
-	int	player_h;
-	int	player_w;
-	int	collect_h;
-	int	collect_w;
+	int	height;
+	int	width;
 }				t_graph;
 
 typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
-	char	*exit_path;
-	int		img_width;
-	int		img_height;
+	void	*player_img;
+	void	*exit_img;
+	void	*collect_img;
+	void	*floor_img;
+	void	*wall_img;
 } 				t_mlx;
 
-void	test_map_file(int ac, char *file);
 void	error(char *msg);
-char	**read_map(char *arg);
+void	test_fd(int fd);
+void	test_map_file(int ac, char *file);
 void	chasing_the_chaff(char **map);
 void	evaluating_the_basis(char **map);
 void	testing_the_wall(char **map);
 void	anti_square(char **map);
 void	search_a_path(char **map);
-void	open_window(t_mlx *mlx);
-void	get_graph_locations(t_graph *graph, char **map, int i, int j);
-
+void	put_imgs(t_mlx *data, char **map);
 #endif //SO_LONG_H

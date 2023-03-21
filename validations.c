@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/20 13:35:05 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:06:46 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	test_map_file(int ac, char *file)
 	ext = ft_strchr(file, '.');
 	len = ft_strlen(file) - ft_strlen(ext);
 	if (file[len + 4] != '\0'
-		|| (ft_strncmp(ext, EXT, ft_strlen(ext)) != 0))
+		|| (ft_strncmp(ext, FILE_EXT, ft_strlen(ext)) != 0))
 		error(STATUS_ERROR_2);
 }
 
