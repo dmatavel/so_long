@@ -1,12 +1,13 @@
 NAME = so_long
-SRCS = main.c validations.c check_format.c utils.c pathfinder.c put_images.c
+SRCS = main.c validations.c check_format.c utils.c pathfinder.c\
+	   put_images.c hooks.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
 LIBFT = libft/libft.a
 MLX_PATH = mlx/
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 LINKS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
 
 # checar qual OS

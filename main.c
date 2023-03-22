@@ -6,13 +6,13 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/21 16:00:15 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:35:28 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	count_map_lines(char *arg)
+int	count_map_lines(char *arg)
 {
 	int		fd;
 	int		i;
@@ -60,7 +60,7 @@ char	**read_map(char *arg)
 	return (map);
 }
 
-static void	parser_map(char *file)
+void	parser_map(char *file)
 {
 	char	**map;
 
@@ -75,12 +75,6 @@ static void	parser_map(char *file)
 		map = NULL;
 }
 
-void	get_frame(t_graph *graph, char **map)
-{
-	graph->height = ft_strlen(map[0]);
-	graph->width = ft_strlen(&map[0][0]);
-}
-
 int	main(int argc, char **argv)
 {
 	char	**map;
@@ -92,9 +86,10 @@ int	main(int argc, char **argv)
 	map = read_map(argv[1]);
 	mlx.mlx = mlx_init();
 	get_frame(&graph, map);
-	mlx.win = mlx_new_window(mlx.mlx, graph.height * 50,
-			graph.width * 50, "so_long");
-	mlx_loop_hook(mlx.mlx, put_imgs(&mlx, map), &mlx);
+	mlx.win = mlx_new_window(mlx.mlx, graph.width * 50,
+			graph.height * 50, "so_long");
+	display_map(&mlx, map);
+	handle_window(&mlx);
 	mlx_loop(mlx.mlx);
 	return (EXIT_SUCCESS);
 }
