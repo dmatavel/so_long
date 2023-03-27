@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/22 13:35:49 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:04:37 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ typedef struct s_graph
 	int	w;
 	int	height;
 	int	width;
+	int	x;
+	int	y;
+	char **map;
 }				t_graph;
 
 typedef struct s_mlx
@@ -65,6 +68,8 @@ typedef struct s_mlx
 
 void	error(char *msg);
 void	test_fd(int fd);
+void	free_map(char **map, int n);
+int 	count_map_lines(char *arg);
 void	get_frame(t_graph *graph, char **map);
 void	test_map_file(int ac, char *file);
 void	chasing_the_chaff(char **map);
@@ -72,12 +77,12 @@ void	evaluating_the_basis(char **map);
 void	testing_the_wall(char **map);
 void	anti_square(char **map);
 void	search_a_path(char **map);
-void	put_imgs(t_mlx *mlx, char **map);
+void	put_imgs(t_mlx *mlx, t_graph *graph);
 void	set_imgs(t_mlx *mlx);
 void	close_window(t_mlx *mlx);
 int		key_press_hook(int keycode, t_mlx *mlx);
 int		exit_hook(t_mlx *mlx);
-void	handle_window(t_mlx *mlx);
-void	display_map(t_mlx *mlx, char **map);
+void	handle_window(t_mlx *mlx, char **map);
+void	display_map(t_mlx *mlx, t_graph *graph);
 
 #endif //SO_LONG_H

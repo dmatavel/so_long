@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/22 13:35:28 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:03:23 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ int	count_map_lines(char *arg)
 		line = get_next_line(fd);
 		i++;
 	}
+	i++;
 	close(fd);
 	return (i);
 }
 
-char	**read_map(char *arg)
+char	**read_map(char *arg, t_graph *graph)
 {
 	int		fd;
 	char	*line;
-	char	**map;
 	int		i;
 
-	map = malloc((count_map_lines(arg)) * sizeof(char *));
-	if (!map)
+	graph->map = malloc((count_map_lines(arg)) * sizeof(char *));
+	if (!graph->map)
 	{
 		return (NULL);
 	}
@@ -49,47 +49,41 @@ char	**read_map(char *arg)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		map[i] = ft_strdup(line);
+		graph->map[i] = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
 		i++;
 	}
-	map[i] = NULL;
-	line = NULL;;
+	graph->map[i] = NULL;
 	close(fd);
-	return (map);
+	return (graph->map);
 }
 
-void	parser_map(char *file)
+void	parser_map(char *file, t_graph *graph)
 {
-	char	**map;
-
-	map = read_map(file);
-	chasing_the_chaff(map);
-	evaluating_the_basis(map);
-	testing_the_wall(map);
-	anti_square(map);
-	search_a_path(map);
-	free(map);
-	if (map != NULL)
-		map = NULL;
+	graph->map = read_map(file, graph);
+	chasing_the_chaff(graph->map);
+	evaluating_the_basis(graph->map);
+	testing_the_wall(graph->map);
+	anti_square(graph->map);
+	search_a_path(graph->map);
+	free_map(graph->map, count_map_lines(file));
 }
 
 int	main(int argc, char **argv)
 {
-	char	**map;
 	t_mlx	mlx;
 	t_graph	graph;
 	
 	test_map_file(argc, argv[1]);
-	parser_map(argv[1]);
-	map = read_map(argv[1]);
+	parser_map(argv[1], &graph);
+	graph.map = read_map(argv[1], &graph);
 	mlx.mlx = mlx_init();
-	get_frame(&graph, map);
+	get_frame(&graph, graph.map);
 	mlx.win = mlx_new_window(mlx.mlx, graph.width * 50,
 			graph.height * 50, "so_long");
-	display_map(&mlx, map);
-	handle_window(&mlx);
+	display_map(&mlx, &graph);
+//	mlx_hook(mlx.mlx, press_key_hook, &graph)
 	mlx_loop(mlx.mlx);
 	return (EXIT_SUCCESS);
 }

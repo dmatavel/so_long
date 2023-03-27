@@ -1,67 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_images.c                                       :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 14:45:44 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/27 13:03:06 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/03/27 12:54:44 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
 
-void	set_imgs(t_mlx *mlx)
-{
-	int	img_width;
-	int	img_height;
-
-	mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
-			PLAYER, &img_width, &img_height);
-	mlx->exit_img = mlx_xpm_file_to_image(mlx->mlx,
-			EXIT, &img_width, &img_height);
-	mlx->wall_img = mlx_xpm_file_to_image(mlx->mlx,
-			WALL, &img_width, &img_height);
-	mlx->collect_img = mlx_xpm_file_to_image(mlx->mlx,
-			COLLECT, &img_width, &img_height);
-	mlx->floor_img = mlx_xpm_file_to_image(mlx->mlx,
-			FLOOR, &img_width, &img_height);
-}
-
-void	put_imgs(t_mlx *mlx, t_graph *graph)
+void	mov_up(t_mlx *mlx, t_graph *graph)
 {
 	int	i;
 	int j;
 
 	i = -1;
-	while (graph->map[++i])
+	while (map[++i])
 	{
 		j = -1;
-		while (graph->map[i][++j])
+		while (map[i][++j])
 		{
-			if (graph->map[i][j] == 'P')
+			if (map[i][j] == 'P')
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->player_img, j * 50, i * 50);
-
-			else if (graph->map[i][j] == 'E')
+			else if (map[i][j] == 'E')
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->exit_img, j * 50, i * 50);
-			else if (graph->map[i][j] == 'C')
+			else if (map[i][j] == 'C')
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->collect_img, j * 50, i * 50);
-			else if (graph->map[i][j] == '1')
+			else if (map[i][j] == '1')
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->wall_img, j * 50, i * 50);
-			else if (graph->map[i][j] == '0')
+			else if (map[i][j] == '0')
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->floor_img, j * 50, i * 50);
 		}
 	}
 }
 
-void	display_map(t_mlx *mlx, t_graph *graph)
+void	press_key_hook(int keycode, t_mlx *mlx)
 {
-	set_imgs(mlx);
-	put_imgs(mlx, graph);
+	if (keycode == W)
+		move_up(mlx);
+	else if (keycode == D)
+		move_right(mlx);
+	else if (keycode == A)
+		move_left(mlx);
+	else if (keycode == S)
+		move_down(mlx);
+	else if (keycode == ESC)
+		close_window(mlx);
 }

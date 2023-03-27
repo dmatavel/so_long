@@ -1,6 +1,6 @@
 NAME = so_long
 SRCS = main.c validations.c check_format.c utils.c pathfinder.c\
-	   put_images.c hooks.c
+	   put_images.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
