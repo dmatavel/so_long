@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:45:44 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/27 13:03:06 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:02:25 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,12 @@ void	put_imgs(t_mlx *mlx, t_graph *graph)
 		while (graph->map[i][++j])
 		{
 			if (graph->map[i][j] == 'P')
+			{
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->player_img, j * 50, i * 50);
-
+				graph->y = i;
+				graph->x = j;
+			}
 			else if (graph->map[i][j] == 'E')
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 						mlx->exit_img, j * 50, i * 50);
@@ -62,6 +65,5 @@ void	put_imgs(t_mlx *mlx, t_graph *graph)
 
 void	display_map(t_mlx *mlx, t_graph *graph)
 {
-	set_imgs(mlx);
 	put_imgs(mlx, graph);
 }

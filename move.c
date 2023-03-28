@@ -6,42 +6,67 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/27 12:54:44 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:01:13 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 
-void	mov_up(t_mlx *mlx, t_graph *graph)
+void	move_up(t_mlx *mlx)
 {
-	int	i;
-	int j;
-
-	i = -1;
-	while (map[++i])
+	if (mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] != '1'
+			&& mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] == '0')
 	{
-		j = -1;
-		while (map[i][++j])
-		{
-			if (map[i][j] == 'P')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-						mlx->player_img, j * 50, i * 50);
-			else if (map[i][j] == 'E')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-						mlx->exit_img, j * 50, i * 50);
-			else if (map[i][j] == 'C')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-						mlx->collect_img, j * 50, i * 50);
-			else if (map[i][j] == '1')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-						mlx->wall_img, j * 50, i * 50);
-			else if (map[i][j] == '0')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-						mlx->floor_img, j * 50, i * 50);
-		}
+		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
+		mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] = 'P';
+	}
+//	mlx->steps++;
+//	ft_printf("steps: %d\n", mlx->steps);
+}
+
+void	move_right(t_mlx *mlx)
+{
+	int	img_height;
+	int	img_width;
+	
+	if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
+			&& mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] == '0')
+	{
+	 	mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
+			 PLAYER_RIGHT, &img_width, &img_height);
+		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
+		mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] = 'P';
 	}
 }
 
-void	press_key_hook(int keycode, t_mlx *mlx)
+void	move_left(t_mlx *mlx)
+{
+	int	img_height;
+	int	img_width;
+
+	if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
+			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == '0')
+	{
+	 	mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
+			 PLAYER, &img_width, &img_height);
+		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
+		mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] = 'P';
+	}
+}
+
+void	move_down(t_mlx *mlx)
+{
+	if (mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] != '1'
+			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == '0')
+	{
+		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
+		mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] = 'P';
+	}
+//	mlx->steps++;
+//	ft_printf("steps: %d\n", mlx->steps);
+}
+
+int	press_key_hook(int keycode, t_mlx *mlx)
 {
 	if (keycode == W)
 		move_up(mlx);
@@ -51,6 +76,7 @@ void	press_key_hook(int keycode, t_mlx *mlx)
 		move_left(mlx);
 	else if (keycode == S)
 		move_down(mlx);
-	else if (keycode == ESC)
-		close_window(mlx);
+	//else if (keycode == ESC)
+	//	close_window(mlx);
+	return (0);
 }

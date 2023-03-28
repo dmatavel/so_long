@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/27 13:04:37 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:03:04 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define FILE_EXT ".ber"
 # define EXIT "./sprites/exit.xpm"
 # define PLAYER "./sprites/player.xpm"
+# define PLAYER_RIGHT "./sprites/player_right.xpm"
 # define WALL "./sprites/wall.xpm"
 # define COLLECT "./sprites/collect.xpm"
 # define FLOOR "./sprites/floor.xpm"
@@ -64,6 +65,8 @@ typedef struct s_mlx
 	void	*collect_img;
 	void	*floor_img;
 	void	*wall_img;
+	int		steps;
+	t_graph	*graph;
 } 				t_mlx;
 
 void	error(char *msg);
@@ -80,9 +83,10 @@ void	search_a_path(char **map);
 void	put_imgs(t_mlx *mlx, t_graph *graph);
 void	set_imgs(t_mlx *mlx);
 void	close_window(t_mlx *mlx);
-int		key_press_hook(int keycode, t_mlx *mlx);
+int		press_key_hook(int keycode, t_mlx *mlx);
 int		exit_hook(t_mlx *mlx);
 void	handle_window(t_mlx *mlx, char **map);
 void	display_map(t_mlx *mlx, t_graph *graph);
+void	set_imgs(t_mlx *mlx);
 
 #endif //SO_LONG_H
