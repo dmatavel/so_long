@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 12:34:14 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:56:31 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@ void	move_up(t_mlx *mlx)
 	{
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 	}
 	else if (mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] == 'C')
 	{
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 		mlx->count++;
 	}
 	else if (mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] != '1'
@@ -33,8 +37,6 @@ void	move_up(t_mlx *mlx)
 	{
 		exit(0);
 	}
-	mlx->steps++;
-	ft_printf("steps: %d.\n", mlx->steps);
 }
 
 void	move_right(t_mlx *mlx)
@@ -49,12 +51,16 @@ void	move_right(t_mlx *mlx)
 				PLAYER_RIGHT, &img_width, &img_height);
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 	}
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] == 'C')
 	{
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 		mlx->count++;
 	}
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
@@ -63,8 +69,6 @@ void	move_right(t_mlx *mlx)
 	{
 		exit(0);
 	}
-	mlx->steps++;
-	ft_printf("steps: %d.\n", mlx->steps);
 }
 
 void	move_left(t_mlx *mlx)
@@ -79,12 +83,16 @@ void	move_left(t_mlx *mlx)
 			 PLAYER, &img_width, &img_height);
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 	}
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == 'C')
 	{
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 		mlx->count++;
 	}
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
@@ -93,8 +101,6 @@ void	move_left(t_mlx *mlx)
 	{
 		exit(0);
 	}
-	mlx->steps++;
-	ft_printf("steps: %d.\n", mlx->steps);
 }
 
 void	move_down(t_mlx *mlx)
@@ -104,6 +110,8 @@ void	move_down(t_mlx *mlx)
 	{
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] = 'P';
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 	}
 	else if (mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == 'C')
@@ -111,7 +119,8 @@ void	move_down(t_mlx *mlx)
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] = 'P';
 		mlx->count++;
-		ft_printf("%d\n", mlx->count);
+		mlx->steps++;
+		ft_printf("steps: %d.\n", mlx->steps);
 	}
 	else if (mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == 'E'
@@ -119,8 +128,6 @@ void	move_down(t_mlx *mlx)
 	{
 		exit(0);
 	}
-	mlx->steps++;
-	ft_printf("steps: %d.\n", mlx->steps);
 }
 
 void	close_window(t_mlx *mlx)
