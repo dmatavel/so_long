@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:25:11 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:32:24 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ void	move_up(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-	{
 		exit(0);
-	}
 }
 
 void	move_right(t_mlx *mlx)
@@ -66,9 +64,7 @@ void	move_right(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-	{
 		exit(0);
-	}
 }
 
 void	move_left(t_mlx *mlx)
@@ -98,9 +94,7 @@ void	move_left(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-	{
 		exit(0);
-	}
 }
 
 void	move_down(t_mlx *mlx)
@@ -125,9 +119,7 @@ void	move_down(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-	{
 		exit(0);
-	}
 }
 
 void	close_window(t_mlx *mlx)
