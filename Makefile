@@ -1,6 +1,6 @@
 NAME = so_long
 SRCS = main.c validations.c check_format.c utils.c pathfinder.c\
-	   put_images.c move.c
+	   put_images.c move.c append.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
@@ -9,17 +9,6 @@ MLX_PATH = mlx/
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LINKS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
-
-# checar qual OS
-
-# detected_OS = $(shell uname -s)
-
-# ifeq (detected_OS == "Darwin")
-#	LINKS = ASDFASDFASDFA
-#	-D OS= 1
-# else
-#	LINKS = sadasda
-# endif
 
 $(NAME): $(LIBFT) $(OBJ)
 	make -C $(MLX_PATH) all

@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:32:24 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:43:20 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	move_left(t_mlx *mlx)
 	if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == '0')
 	{
-	 	mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
+		mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
 				PLAYER, &img_width, &img_height);
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] = 'P';
@@ -120,12 +120,6 @@ void	move_down(t_mlx *mlx)
 			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == 'E'
 			&& mlx->count == mlx->graph->collectible)
 		exit(0);
-}
-
-void	close_window(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->mlx, mlx->win);
-	exit(0);
 }
 
 int	press_key_hook(int keycode, t_mlx *mlx)

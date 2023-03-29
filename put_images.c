@@ -6,28 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:45:44 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:26:09 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:39:50 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	set_imgs(t_mlx *mlx)
-{
-	int	img_width;
-	int	img_height;
-
-	mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
-			PLAYER, &img_width, &img_height);
-	mlx->exit_img = mlx_xpm_file_to_image(mlx->mlx,
-			EXIT, &img_width, &img_height);
-	mlx->wall_img = mlx_xpm_file_to_image(mlx->mlx,
-			WALL, &img_width, &img_height);
-	mlx->collect_img = mlx_xpm_file_to_image(mlx->mlx,
-			COLLECT, &img_width, &img_height);
-	mlx->floor_img = mlx_xpm_file_to_image(mlx->mlx,
-			FLOOR, &img_width, &img_height);
-}
 
 void	put_imgs(t_mlx *mlx, t_graph *graph)
 {
@@ -61,9 +44,4 @@ void	put_imgs(t_mlx *mlx, t_graph *graph)
 					mlx->floor_img, j * 50, i * 50);
 		}
 	}
-}
-
-void	display_map(t_mlx *mlx, t_graph *graph)
-{
-	put_imgs(mlx, graph);
 }
