@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 12:56:31 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:25:11 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	move_left(t_mlx *mlx)
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == '0')
 	{
 	 	mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
-			 PLAYER, &img_width, &img_height);
+				PLAYER, &img_width, &img_height);
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] = 'P';
 		mlx->steps++;
