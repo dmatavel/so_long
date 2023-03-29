@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:55:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 12:44:06 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:23:35 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	get_frame(t_graph *graph, char **map)
 void	free_map(char **map, int n)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < n)
 	{

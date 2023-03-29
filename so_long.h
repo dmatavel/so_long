@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 12:43:28 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:21:42 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@
 
 typedef struct s_graph
 {
-	int	space;
-	int	wall;
-	int	collectible;
-	int	exit;
-	int	player;
-	int	h;
-	int	w;
-	int	height;
-	int	width;
-	int	x;
-	int	y;
-	char **map;
+	int		space;
+	int		wall;
+	int		collectible;
+	int		exit;
+	int		player;
+	int		h;
+	int		w;
+	int		height;
+	int		width;
+	int		x;
+	int		y;
+	char	**map;
 }				t_graph;
 
 typedef struct s_mlx
@@ -68,13 +68,13 @@ typedef struct s_mlx
 	int		steps;
 	int		count;
 	t_graph	*graph;
-} 				t_mlx;
+}				t_mlx;
 
-int	ft_exit(void);
+int		ft_exit(void);
 void	error(char *msg);
 void	test_fd(int fd);
 void	free_map(char **map, int n);
-int 	count_map_lines(char *arg);
+int		count_map_lines(char *arg);
 void	get_frame(t_graph *graph, char **map);
 void	test_map_file(int ac, char *file);
 void	chasing_the_chaff(char **map);
