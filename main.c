@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/28 16:03:10 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:41:52 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	parser_map(char *file, t_graph *graph)
 {
 	graph->map = read_map(file, graph);
 	chasing_the_chaff(graph->map);
-	evaluating_the_basis(graph->map);
+	evaluating_the_basis(graph->map, graph);
 	testing_the_wall(graph->map);
 	anti_square(graph->map);
 	search_a_path(graph->map);
@@ -80,9 +80,8 @@ int	main(int argc, char **argv)
 {
 	t_mlx	mlx;
 	t_graph	graph;
-	
+
 	mlx.graph = &graph;
-	mlx.steps = 0;
 	test_map_file(argc, argv[1]);
 	parser_map(argv[1], &graph);
 	graph.map = read_map(argv[1], &graph);
@@ -91,6 +90,7 @@ int	main(int argc, char **argv)
 	set_imgs(&mlx);
 	mlx.win = mlx_new_window(mlx.mlx, graph.width * 50,
 			graph.height * 50, "so_long");
+	mlx_hook(mlx.win, 17, 0, ft_exit, &mlx);
 	mlx_key_hook(mlx.win, press_key_hook, &mlx);
 	mlx_loop_hook(mlx.mlx, render, &mlx);
 	mlx_loop(mlx.mlx);

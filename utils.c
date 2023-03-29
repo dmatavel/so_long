@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:55:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/27 11:32:10 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:44:06 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,9 @@ void	free_map(char **map, int n)
 		i++;
 	}
 	free(map);
+}
+
+int	ft_exit(void)
+{
+	exit(EXIT_SUCCESS);
 }

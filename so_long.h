@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/28 16:03:04 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:43:28 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ typedef struct s_mlx
 	void	*floor_img;
 	void	*wall_img;
 	int		steps;
+	int		count;
 	t_graph	*graph;
 } 				t_mlx;
 
+int	ft_exit(void);
 void	error(char *msg);
 void	test_fd(int fd);
 void	free_map(char **map, int n);
@@ -76,7 +78,7 @@ int 	count_map_lines(char *arg);
 void	get_frame(t_graph *graph, char **map);
 void	test_map_file(int ac, char *file);
 void	chasing_the_chaff(char **map);
-void	evaluating_the_basis(char **map);
+void	evaluating_the_basis(char **map, t_graph *graph);
 void	testing_the_wall(char **map);
 void	anti_square(char **map);
 void	search_a_path(char **map);
