@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 12:41:52 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:20:46 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**read_map(char *arg, t_graph *graph)
 	return (graph->map);
 }
 
-void	parser_map(char *file, t_graph *graph)
+void	check_map(char *file, t_graph *graph)
 {
 	graph->map = read_map(file, graph);
 	chasing_the_chaff(graph->map);
@@ -83,7 +83,7 @@ int	main(int argc, char **argv)
 
 	mlx.graph = &graph;
 	test_map_file(argc, argv[1]);
-	parser_map(argv[1], &graph);
+	check_map(argv[1], &graph);
 	graph.map = read_map(argv[1], &graph);
 	get_frame(&graph, graph.map);
 	mlx.mlx = mlx_init();
