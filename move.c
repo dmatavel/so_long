@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:43:20 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:00:39 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,16 @@ void	move_up(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-		exit(0);
+		ft_exit(mlx);
 }
 
 void	move_right(t_mlx *mlx)
 {
-	int	img_height;
-	int	img_width;
-
 	if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] == '0')
 	{
 		mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
-				PLAYER_RIGHT, &img_width, &img_height);
+				PLAYER_RIGHT, &mlx->img_width, &mlx->img_height);
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] = 'P';
 		mlx->steps++;
@@ -64,19 +61,16 @@ void	move_right(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-		exit(0);
+		ft_exit(mlx);
 }
 
 void	move_left(t_mlx *mlx)
 {
-	int	img_height;
-	int	img_width;
-
 	if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == '0')
 	{
 		mlx->player_img = mlx_xpm_file_to_image(mlx->mlx,
-				PLAYER, &img_width, &img_height);
+				PLAYER, &mlx->img_width, &mlx->img_height);
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] = 'P';
 		mlx->steps++;
@@ -94,7 +88,7 @@ void	move_left(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-		exit(0);
+		ft_exit(mlx);
 }
 
 void	move_down(t_mlx *mlx)
@@ -119,7 +113,7 @@ void	move_down(t_mlx *mlx)
 	else if (mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == 'E'
 			&& mlx->count == mlx->graph->collectible)
-		exit(0);
+		ft_exit(mlx);
 }
 
 int	press_key_hook(int keycode, t_mlx *mlx)

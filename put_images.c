@@ -6,11 +6,37 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:45:44 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:39:50 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:45:04 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	put_player_img(t_mlx *mlx, int i, int j)
+{
+	mlx_put_image_to_window(mlx->mlx, mlx->win,
+		mlx->player_img, j * 50, i * 50);
+	mlx->graph->y = i;
+	mlx->graph->x = j;
+}
+
+void	put_exit_img(t_mlx *mlx, int i, int j)
+{
+	mlx_put_image_to_window(mlx->mlx, mlx->win,
+		mlx->exit_img, j * 50, i * 50);
+}
+
+void	put_collect_img(t_mlx *mlx, int i, int j)
+{
+	mlx_put_image_to_window(mlx->mlx, mlx->win,
+		mlx->collect_img, j * 50, i * 50);
+}
+
+void	put_wall_img(t_mlx *mlx, int i, int j)
+{
+	mlx_put_image_to_window(mlx->mlx, mlx->win,
+		mlx->wall_img, j * 50, i * 50);
+}
 
 void	put_imgs(t_mlx *mlx, t_graph *graph)
 {
@@ -24,22 +50,14 @@ void	put_imgs(t_mlx *mlx, t_graph *graph)
 		while (graph->map[i][++j])
 		{
 			if (graph->map[i][j] == 'P')
-			{
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-					mlx->player_img, j * 50, i * 50);
-				graph->y = i;
-				graph->x = j;
-			}
+				put_player_img(mlx, i, j);
 			else if (graph->map[i][j] == 'E')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-					mlx->exit_img, j * 50, i * 50);
+				put_exit_img(mlx, i, j);
 			else if (graph->map[i][j] == 'C')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-					mlx->collect_img, j * 50, i * 50);
+				put_collect_img(mlx, i, j);
 			else if (graph->map[i][j] == '1')
-				mlx_put_image_to_window(mlx->mlx, mlx->win,
-					mlx->wall_img, j * 50, i * 50);
-			else if (graph->map[i][j] == '0')
+				put_wall_img(mlx, i, j);
+			else
 				mlx_put_image_to_window(mlx->mlx, mlx->win,
 					mlx->floor_img, j * 50, i * 50);
 		}

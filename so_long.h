@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 14:21:42 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:59:09 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,16 @@ typedef struct s_mlx
 	void	*wall_img;
 	int		steps;
 	int		count;
+	int		length;
+	int		img_height;
+	int		img_width;
 	t_graph	*graph;
 }				t_mlx;
 
-int		ft_exit(void);
+int		ft_exit(t_mlx *mlx);
 void	error(char *msg);
 void	test_fd(int fd);
-void	free_map(char **map, int n);
+void	free_map(char **map);
 int		count_map_lines(char *arg);
 void	get_frame(t_graph *graph, char **map);
 void	test_map_file(int ac, char *file);

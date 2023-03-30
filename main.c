@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:20:46 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:34:18 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	check_map(char *file, t_graph *graph)
 	testing_the_wall(graph->map);
 	anti_square(graph->map);
 	search_a_path(graph->map);
-	free_map(graph->map, count_map_lines(file));
+	free_map(graph->map);
 }
 
 int	render(t_mlx *mlx)
@@ -82,6 +82,7 @@ int	main(int argc, char **argv)
 	t_graph	graph;
 
 	mlx.graph = &graph;
+	mlx.length = count_map_lines(argv[1]);
 	test_map_file(argc, argv[1]);
 	check_map(argv[1], &graph);
 	graph.map = read_map(argv[1], &graph);
@@ -94,5 +95,6 @@ int	main(int argc, char **argv)
 	mlx_key_hook(mlx.win, press_key_hook, &mlx);
 	mlx_loop_hook(mlx.mlx, render, &mlx);
 	mlx_loop(mlx.mlx);
+	free_map(graph.map);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:55:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 14:23:35 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:48:22 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,23 @@ void	get_frame(t_graph *graph, char **map)
 	graph->width = j;
 }
 
-void	free_map(char **map, int n)
+void	free_map(char **map)
 {
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (map[i])
 	{
-		free(*(map + i));
+		free(map[i]);
 		i++;
 	}
+	free(map[i]);
 	free(map);
+	map = NULL;
 }
 
-int	ft_exit(void)
+int	ft_exit(t_mlx *mlx)
 {
+	free_map(mlx->graph->map);
 	exit(EXIT_SUCCESS);
 }

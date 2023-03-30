@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:36:54 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 15:42:04 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:59:36 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	close_window(t_mlx *mlx)
 {
 	mlx_destroy_window(mlx->mlx, mlx->win);
-	exit(0);
+	ft_exit(mlx);
 }
 
 void	display_map(t_mlx *mlx, t_graph *graph)
