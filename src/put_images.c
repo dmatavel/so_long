@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:45:44 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/30 15:45:04 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:42:14 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	put_player_img(t_mlx *mlx, int i, int j)
 {

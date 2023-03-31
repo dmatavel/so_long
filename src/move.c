@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/30 16:00:39 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:42:01 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	move_up(t_mlx *mlx)
 {

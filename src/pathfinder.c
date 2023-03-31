@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 09:40:10 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/09 13:33:36 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:42:43 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	catch_the_player(t_graph *player, char **map)
 {
