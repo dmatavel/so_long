@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/31 14:41:48 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:25:47 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../include/so_long.h"
 
 int	count_map_lines(char *arg)
 {
@@ -65,7 +65,7 @@ void	check_map(char *file, t_graph *graph)
 	chasing_the_chaff(graph->map);
 	evaluating_the_basis(graph->map, graph);
 	testing_the_wall(graph->map);
-	anti_square(graph->map);
+	check_format(graph->map);
 	search_a_path(graph->map);
 	free_map(graph->map);
 }

@@ -6,14 +6,14 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/31 14:45:29 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:26:11 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft/include/libft.h"
+# include "../libft/include/libft.h"
 # include <fcntl.h>
 # include "../mlx/mlx.h"
 
@@ -82,7 +82,7 @@ void	test_map_file(int ac, char *file);
 void	chasing_the_chaff(char **map);
 void	evaluating_the_basis(char **map, t_graph *graph);
 void	testing_the_wall(char **map);
-void	anti_square(char **map);
+void	check_format(char **map);
 void	search_a_path(char **map);
 void	put_imgs(t_mlx *mlx, t_graph *graph);
 void	set_imgs(t_mlx *mlx);
