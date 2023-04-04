@@ -6,16 +6,16 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:04:02 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:40:19 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft/include/libft.h"
+# include "../libft/include/libft.h"
 # include <fcntl.h>
-# include "mlx/mlx.h"
+# include "../mlx/mlx.h"
 
 # define FILE_EXT ".ber"
 # define EXIT "./sprites/exit.xpm"

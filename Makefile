@@ -1,6 +1,7 @@
 NAME = so_long
-SRCS = main.c validations.c check_format.c utils.c pathfinder.c\
-	   put_images.c move.c append.c
+SRCS = src/main.c src/validations.c src/check_format.c \
+	   src/utils.c src/pathfinder.c src/put_images.c \
+	   src/move.c src/append.c
 
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = libft/
@@ -20,7 +21,7 @@ $(LIBFT):
 all: $(NAME)
 
 clean:
-	rm -f *.o
+	rm -f src/*.o
 	make -C $(LIB_PATH) clean
 	make -C $(MLX_PATH) clean
 

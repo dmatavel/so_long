@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 09:40:10 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:01:57 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:42:29 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	catch_the_player(t_graph *player, char **map)
 {
@@ -96,10 +96,14 @@ void	search_a_path(char **map)
 	catch_the_player(&player, map);
 	height = player.h;
 	width = player.w;
-	if ((map[height][width + 1] == 'E' && map[height][width - 1] == '1'
-				&& map[height + 1][width] == '1' && map[height - 1][width] == '1')
-			|| (map[height][width + 1] == '1' && map[height][width - 1] == 'E'
-				&& map[height + 1][width] == '1' && map[height - 1][width] == '1'))
+	if ((map[height][width + 1] == 'E'
+		&& map[height][width - 1] == '1'
+		&& map[height + 1][width] == '1'
+		&& map[height - 1][width] == '1')
+		|| (map[height][width + 1] == '1'
+		&& map[height][width - 1] == 'E'
+		&& map[height + 1][width] == '1'
+		&& map[height - 1][width] == '1'))
 		error(STATUS_ERROR_7);
 	path = pathfinder(map, height, width);
 	if (path != 0)

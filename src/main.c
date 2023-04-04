@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:04:18 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:35:47 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 int	count_map_lines(char *arg)
 {

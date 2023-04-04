@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/29 11:30:26 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:36:56 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	test_map_file(int ac, char *file)
 {

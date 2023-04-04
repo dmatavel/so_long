@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:55:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/03/30 14:48:22 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:36:41 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	error(char *msg)
 {
