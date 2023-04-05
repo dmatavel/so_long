@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:32:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:36:02 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/05 09:15:39 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	move_up(t_mlx *mlx)
 		mlx->steps++;
 		ft_printf("steps: %d.\n", mlx->steps);
 		mlx->count++;
+		if (mlx->count == mlx->graph->collectible)
+			mlx->graph->map[mlx->graph->exit_i][mlx->graph->exit_j] = 'E';
 	}
 	else if (mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y - 1][mlx->graph->x] == 'E'
@@ -57,6 +59,8 @@ void	move_right(t_mlx *mlx)
 		mlx->steps++;
 		ft_printf("steps: %d.\n", mlx->steps);
 		mlx->count++;
+		if (mlx->count == mlx->graph->collectible)
+			mlx->graph->map[mlx->graph->exit_i][mlx->graph->exit_j] = 'E';
 	}
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x + 1] == 'E'
@@ -84,6 +88,8 @@ void	move_left(t_mlx *mlx)
 		mlx->steps++;
 		ft_printf("steps: %d.\n", mlx->steps);
 		mlx->count++;
+		if (mlx->count == mlx->graph->collectible)
+			mlx->graph->map[mlx->graph->exit_i][mlx->graph->exit_j] = 'E';
 	}
 	else if (mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] != '1'
 			&& mlx->graph->map[mlx->graph->y][mlx->graph->x - 1] == 'E'
@@ -106,9 +112,11 @@ void	move_down(t_mlx *mlx)
 	{
 		mlx->graph->map[mlx->graph->y][mlx->graph->x] = '0';
 		mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] = 'P';
-		mlx->count++;
 		mlx->steps++;
 		ft_printf("steps: %d.\n", mlx->steps);
+		mlx->count++;
+		if (mlx->count == mlx->graph->collectible)
+			mlx->graph->map[mlx->graph->exit_i][mlx->graph->exit_j] = 'E';
 	}
 	else if (mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] != '1'
 			&& mlx->graph->map[mlx->graph->y + 1][mlx->graph->x] == 'E'

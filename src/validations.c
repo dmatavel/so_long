@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:44:00 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:36:56 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/05 09:19:33 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ void	evaluating_the_basis(char **map, t_graph *graph)
 			if (map[i][j] == 'P')
 				graph->player += 1;
 			if (map[i][j] == 'E')
+			{
+				graph->exit_i = i;
+				graph->exit_j = j;
 				graph->exit += 1;
+			}
 			if (map[i][j] == 'C')
 				graph->collectible += 1;
 		}

@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:40:19 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/05 09:13:45 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_graph
 	int		wall;
 	int		collectible;
 	int		exit;
+	int		exit_i;
+	int		exit_j;
 	int		player;
 	int		h;
 	int		w;

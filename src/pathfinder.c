@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 09:40:10 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/04 16:42:29 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/05 09:24:10 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,6 @@ void	search_a_path(char **map)
 	catch_the_player(&player, map);
 	height = player.h;
 	width = player.w;
-	if ((map[height][width + 1] == 'E'
-		&& map[height][width - 1] == '1'
-		&& map[height + 1][width] == '1'
-		&& map[height - 1][width] == '1')
-		|| (map[height][width + 1] == '1'
-		&& map[height][width - 1] == 'E'
-		&& map[height + 1][width] == '1'
-		&& map[height - 1][width] == '1'))
-		error(STATUS_ERROR_7);
 	path = pathfinder(map, height, width);
 	if (path != 0)
 		error(STATUS_ERROR_7);
