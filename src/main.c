@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:09:58 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/05 09:23:00 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:45:43 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int	main(int argc, char **argv)
 	graph.map = read_map(argv[1], &graph);
 	graph.map[graph.exit_i][graph.exit_j] = '0';
 	get_frame(&graph, graph.map);
+	mlx.steps = 0;
+	mlx.count = 0;
 	mlx.mlx = mlx_init();
 	set_imgs(&mlx);
 	mlx.win = mlx_new_window(mlx.mlx, graph.width * 50,
