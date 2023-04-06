@@ -6,12 +6,24 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/05 09:13:45 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:00:52 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# ifndef OS
+# define OS 2
+# endif
+
+# if OS == 1
+#  include "../mlx_linux/mlx.h"
+#  include "linux.h"
+# elif OS == 2
+#  include "../mlx/mlx.h"
+#  include "macos.h"
+# endif
 
 # include "../libft/include/libft.h"
 # include <fcntl.h>
@@ -25,11 +37,6 @@
 # define COLLECT "./sprites/collect.xpm"
 # define FLOOR "./sprites/floor.xpm"
 
-# define ESC 53
-# define A 0
-# define W 13
-# define S 1
-# define D 2
 
 # define STATUS_ERROR_1 "Error\nInsert a valid file.ber.\n"
 # define STATUS_ERROR_2 "Error\nCheck the file extension.\n"
@@ -45,8 +52,6 @@ typedef struct s_graph
 	int		wall;
 	int		collectible;
 	int		exit;
-	int		exit_i;
-	int		exit_j;
 	int		player;
 	int		h;
 	int		w;
@@ -54,6 +59,8 @@ typedef struct s_graph
 	int		width;
 	int		x;
 	int		y;
+	int		exit_i;
+	int		exit_j;
 	char	**map;
 }				t_graph;
 
