@@ -2,9 +2,6 @@
 
 **About the game:**
 
-![so_long_screenshot1](https://user-images.githubusercontent.com/69722851/230512088-e9393349-41f3-4b2a-9cc6-a7c0e2cb53e2.png)
-
-
 - The player must pick up all the collectibles around the map and escap the level using the nearest exit.
 - The keys `W`, `A`, `S`, `D` move the player up, left, down, and right respectively.
 - When all the collectibles are picked up by the player, a passage becomes available and the player can access it.
@@ -18,12 +15,12 @@
 
 - Linux
 
-1. The Linux version of the MiniLibiX graphics library "requires xorg, x11 and zlib, therefore you will need to install the following dependencies: `xorg`, `libxext-dev` and `zlib1g-dev`. Installing these dependencies on Ubuntu can be done as follows"*:
+1. The Linux version of the MiniLibiX graphics library "requires xorg, `x11` and zlib`, therefore you will need to install the following dependencies: `xorg`, `libxext-dev` and `zlib1g-dev`. Installing these dependencies on Ubuntu can be done as follows"*:
 
 `sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev`
 
-1. Inside the so_long directory type make and press Enter to create an executable called so_long.
-2. Type ./so_long maps/map1.ber and press Enter.
+1. Inside the so_long directory type `make` and press `Enter` to create an executable called `so_long`.
+2. Type `./so_long maps/map1.ber` and `press Enter`.
 
 **What I learned with this project:** What is a C graphics library and how to manipulate it to develop applications that generate events related to window creation and display of images, frames, pixels etc; how to create and use in depth C data structures for storing and using variables in different functions throughout the application development; flood fill algorithm; basic image manipulation for creating custom sprites.
 
