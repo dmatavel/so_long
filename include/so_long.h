@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:27:47 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/04/06 19:00:52 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:27:05 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #  include "linux.h"
 # elif OS == 2
 #  include "../mlx/mlx.h"
-#  include "macos.h"
+#  include "mac_os.h"
 # endif
 
 # include "../libft/include/libft.h"
