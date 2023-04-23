@@ -10,7 +10,7 @@
 
 - macOS:
 
-1. Inside the so_long directory type `make` and press `Enter` to create the executable an executable named so_long.
+1. Inside the so_long directory type `make` and press `Enter` to create the executable named so_long.
 2. Type `./so_long maps/map1.ber` and press `Enter`.
 
 - Linux
