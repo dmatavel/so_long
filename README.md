@@ -20,7 +20,7 @@
 `sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev`
 
 1. Inside the so_long directory type `make` and press `Enter` to create an executable called `so_long`.
-2. Type `./so_long maps/map1.ber` and press Enter`.
+2. Type `./so_long maps/map1.ber` and press `Enter`.
 
 **What I learned with this project:** What is a C graphics library and how to manipulate it to develop applications that generate events related to window creation and display of images, frames, pixels etc; how to create and use in depth C data structures for storing and using variables in different functions throughout the application development; flood fill algorithm; basic image manipulation for creating custom sprites.
 
