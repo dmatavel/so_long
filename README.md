@@ -8,6 +8,8 @@
 
 **Instructions:**
 
+Download and extract the [zip file](https://github.com/dmatavel/so_long/archive/refs/heads/main.zip). 
+
 - macOS:
 
 1. Inside the so_long directory type `make` and press `Enter` to create the executable named so_long.
