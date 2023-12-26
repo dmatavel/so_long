@@ -25,11 +25,29 @@ It assumes that you have [Git](https://git-scm.com/) installed and a **Downloads
 
 ## Compilation and execution
 
-so_long uses the graphic library MiniLibX and its Linux version, as said in [42Docs](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html), "requires `xorg`, `x11` and `zlib`, therefore you will need to install the following dependencies: `xorg`, `libxext-dev` and `zlib1g-dev`. Installing these dependencies on Ubuntu can be done as follows" :
-    
+1. Skip this step if you have **[gcc](https://gcc.gnu.org/)** installed.
+
+Assuming that you are using Ubuntu 22.04 or 20.04, update your system executing in your terminal:
+
+    sudo apt update
+
+followed by
+
+    sudo apt upgrade
+
+Install **gcc** with:
+
+    sudo apt install build-essential
+
+2. so_long uses the graphic library MiniLibX and its Linux version, as said in [42Docs](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html):
+
+"requires `xorg`, `x11` and `zlib`, therefore you will need to install the following dependencies: `xorg`, `libxext-dev` and `zlib1g-dev`. Installing these dependencies on Ubuntu can be done as follows":
+
     sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev
 
-If you downloaded the zip file, extract it and enter the **so_long-main** folder. With a right click on your file browser, select the option **Open in Terminal** or something like that. If you've cloned the repository, simple go inside the program's directory. Copy and paste or write in your terminal:
+3. If you downloaded the zip file, extract it and enter the **so_long-main** folder. With a right click on your file browser, select the option **Open in Terminal** or something like that.
+
+If you've cloned the repository, simple go inside the program's directory. Copy and paste or write in your terminal:
 
     make so_long
 
